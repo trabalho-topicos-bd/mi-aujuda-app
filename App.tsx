@@ -1,21 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {
+    useFonts,
+    Ubuntu_400Regular,
+    Ubuntu_400Regular_Italic,
+    Ubuntu_500Medium,
+    Ubuntu_700Bold,
+} from '@expo-google-fonts/ubuntu';
+import {SplashScreen} from './src/screens/splash';
+import {Router} from './src/router';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+export default function App(): JSX.Element {
+    const [splash, setSplash] = useState(true);
+
+    const [fontsLoaded] = useFonts({
+        Regular: Ubuntu_400Regular,
+        'Regular-Italic': Ubuntu_400Regular_Italic,
+        Medium: Ubuntu_500Medium,
+        Bold: Ubuntu_700Bold,
+    });
+
+    useEffect(() => {
+        setTimeout(() => {
+            setSplash(false);
+        }, 2500);
+    }, []);
+
+    if (!fontsLoaded || splash) return <SplashScreen />;
+    return <Router />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
