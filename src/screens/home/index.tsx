@@ -1,4 +1,3 @@
-import AnimatedLottieView from 'lottie-react-native';
 import React, {useCallback} from 'react';
 import {Image, Text, View} from 'react-native';
 import {Button} from '../../components/button';
@@ -17,7 +16,7 @@ export const HomeScreen = ({navigation}: HomeScreenProps): JSX.Element => {
     }, [navigation]);
 
     const handleGoToAnimals = useCallback(() => {
-        navigation.navigate('Animals');
+        navigation.navigate('Pet');
     }, [navigation]);
 
     const handleGoToDonation = useCallback(() => {

@@ -15,8 +15,8 @@ export const items: DrawerItemData[] = [
         label: 'Realizar quiz',
     },
     {
-        to: 'Animals',
-        label: 'Animais para doação',
+        to: 'Pet',
+        label: 'Pets para adoção',
     },
     {
         to: 'Donation',
