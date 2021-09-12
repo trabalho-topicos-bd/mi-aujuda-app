@@ -10,3 +10,8 @@ export interface PetData {
     adopted: boolean;
     images: string[];
 }
+
+export interface PetAllData {
+    count: number;
+    rows: PetData[];
+}

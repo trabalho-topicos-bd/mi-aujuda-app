@@ -27,4 +27,16 @@ export const styles = StyleSheet.create({
         width: 300,
         height: 300,
     },
+    switchRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        padding: 16,
+        paddingBottom: 0,
+    },
+    switchText: {
+        fontFamily: 'Light',
+        fontSize: 16,
+        marginRight: 4,
+    },
 });

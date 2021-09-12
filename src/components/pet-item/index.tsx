@@ -1,25 +1,19 @@
-import React, {useCallback, useMemo} from 'react';
+import React, {useMemo} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {Foundation} from '@expo/vector-icons';
-import {useNavigation} from '@react-navigation/core';
-import {Image} from '../../../../components/image';
-import {PetData} from '../../../../types/pet';
-import {getImageUrl} from '../../../../util/helpers';
+import {Image} from '../image';
 import {styles} from './styles';
-import {PetScreenNavigationProp} from '../../../../types/router';
+import {PetData} from '../../types/pet';
+import {getImageUrl} from '../../util/helpers';
 
 interface PetItemProps {
     item: PetData;
+    handlePress(): void;
+    similarity?: number | null;
 }
 
-export const PetItem = ({item}: PetItemProps): JSX.Element => {
-    const navigation = useNavigation<PetScreenNavigationProp<'List'>>();
-
-    const handlePress = useCallback(() => {
-        navigation.navigate('Detail', {
-            id: item.id,
-        });
-    }, [item.id, navigation]);
+export const PetItem = (props: PetItemProps): JSX.Element => {
+    const {item, handlePress, similarity = null} = props;
 
     const isMale = useMemo(() => item.gender === 0, [item.gender]);
 
@@ -35,6 +29,11 @@ export const PetItem = ({item}: PetItemProps): JSX.Element => {
                         size={24}
                     />
                 </View>
+                {similarity !== null && (
+                    <Text style={styles.similarity}>
+                        Match <Text style={styles.similarityValue}>{(similarity * 100).toFixed(2)}%</Text>
+                    </Text>
+                )}
             </View>
         </TouchableOpacity>
     );

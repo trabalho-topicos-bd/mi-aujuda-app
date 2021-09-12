@@ -6,10 +6,11 @@ import {styles} from './styles';
 interface LayoutProps extends HeaderProps {
     children: React.ReactNode;
     disableScroll?: boolean;
+    padding?: number;
 }
 
 export const Layout = (props: LayoutProps): JSX.Element => {
-    const {title, disableScroll = false, children} = props;
+    const {title, disableScroll = false, padding = 16, children} = props;
 
     return (
         <View style={styles.root}>
@@ -17,7 +18,7 @@ export const Layout = (props: LayoutProps): JSX.Element => {
             {disableScroll ? (
                 children
             ) : (
-                <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
+                <ScrollView contentContainerStyle={{padding}} showsVerticalScrollIndicator={false}>
                     {children}
                 </ScrollView>
             )}

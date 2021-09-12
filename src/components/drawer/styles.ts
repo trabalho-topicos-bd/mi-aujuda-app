@@ -15,13 +15,13 @@ export const styles = StyleSheet.create({
         flex: 1,
     },
     itemButton: {
-        height: 40,
-        marginTop: 8,
+        height: 48,
+        marginTop: 12,
         paddingHorizontal: 8,
         justifyContent: 'center',
-        borderWidth: 2,
-        borderColor: theme.colors.primary,
-        borderRadius: 8,
+        backgroundColor: '#fff',
+        elevation: 8,
+        borderRadius: 12,
     },
     itemText: {
         fontFamily: 'Regular',

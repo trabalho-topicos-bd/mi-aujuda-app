@@ -27,4 +27,14 @@ export const styles = StyleSheet.create({
         fontSize: 20,
         color: '#444',
     },
+    similarity: {
+        marginTop: 4,
+        fontFamily: 'Light',
+        fontSize: 20,
+        color: '#444',
+    },
+    similarityValue: {
+        fontFamily: 'Bold-Italic',
+        color: '#000',
+    },
 });
